@@ -4,39 +4,103 @@
     <script type="text/javascript" src="{{ asset('bundles/chcookieconsent/js/cookie_consent.js') }}"></script>
 {% endblock %}
 
-<div class="ch-cookie-consent ch-cookie-consent--{{ theme }}-theme ch-cookie-consent--{{ position }} {% if simplified %}ch-cookie-consent--simplified{% endif %}">
-    {% block title %}
-        <h3 class="ch-cookie-consent__title">{{ 'ch_cookie_consent.title'|trans({}, 'CHCookieConsentBundle') }}</h3>
-    {% endblock %}
+{# include "@CHCookieConsent/cookie_consent_styling.html.twig" #}
 
-    {% block intro %}
-        <p class="ch-cookie-consent__intro">{{ 'ch_cookie_consent.intro'|trans({}, 'CHCookieConsentBundle') }}</p>
-    {% endblock %}
+<div class="ch-cookie-consent ch-cookie-consent--{{ theme }}-theme ch-cookie-consent--{{ position }}">
+    <div class="ch-cookie-consent__content">
+        {% block title %}
+            <h3 class="ch-cookie-consent__title">{{ 'ch_cookie_consent.title'|trans({}, 'CHCookieConsentBundle') }}</h3>
+        {% endblock %}
 
-    {% block read_more %}
-        <a class="ch-cookie-consent__read-more" href="{% block read_more_link %}/privacy-statement{% endblock %}">{{ 'ch_cookie_consent.read_more'|trans({}, 'CHCookieConsentBundle') }}</a>
-    {% endblock %}
+        {% block intro %}
+            <p class="ch-cookie-consent__intro">{{ 'ch_cookie_consent.intro'|trans({}, 'CHCookieConsentBundle') }}</p>
+        {% endblock %}
 
-    {{ form_start(form, {'attr': {'class': 'ch-cookie-consent__form'}}) }}
-        <div class="ch-cookie-consent__category-group">
-            {% for child in form %}
-                {% if child.vars.block_prefixes[0] != 'button' %}
-                    {{ form_row(child) }}
-                {% endif %}
-            {% endfor %}
-        </div>
+        {% block read_more %}
+            <a class="ch-cookie-consent__read-more" href="{% block read_more_link %}/privacy-statement{% endblock %}" target="_blank">{{ 'ch_cookie_consent.read_more'|trans({}, 'CHCookieConsentBundle') }}</a>
+        {% endblock %}
 
-        <div class="ch-cookie-consent__btn-group">
-            {{ form_rest(form) }}
-            {% if simplified %}
+        {{ form_start(form, {'attr': {'class': 'ch-cookie-consent__form'}}) }}
+            <div class="ch-cookie-consent__btn-group">
+                {{ form_row(form.use_all_cookies) }}
+                {{ form_row(form.use_only_functional_cookies) }}
                 {% block toggle_details %}
-                    <div class="ch-cookie-consent__toggle-details">
-                        <span class="ch-cookie-consent__toggle-details-show">{{ 'ch_cookie_consent.show_details'|trans({}, 'CHCookieConsentBundle') }}</span>
-                        <span class="ch-cookie-consent__toggle-details-hide">{{ 'ch_cookie_consent.hide_details'|trans({}, 'CHCookieConsentBundle') }}</span>
-                    </div>
+                    {% if (position!='standalone')%}
+                        <div class="ch-cookie-consent__toggle-details">
+                            <a class="ch-cookie-consent__toggle ch-cookie-consent__toggle-details-show">
+                                {{ 'ch_cookie_consent.show_details'|trans({}, 'CHCookieConsentBundle') }}
+                            </a>
+                            <a class="ch-cookie-consent__toggle ch-cookie-consent__toggle-details-hide">
+                                {{ 'ch_cookie_consent.hide_details'|trans({}, 'CHCookieConsentBundle') }}
+                            </a>
+                        </div>
+                    {% endif %}
                 {% endblock %}
-            {% endif %}
-        </div>
-    {{ form_end(form) }}
+            </div>
+
+            <div class="ch-cookie-consent__category-group">
+
+                {% if essentials %}
+                <div class="ch-cookie-consent__category">
+                    <div class="ch-cookie-consent__category-information ch-cookie-consent__category-information-essentials">
+                        <h4 class="ch-cookie-consent__category-title">{{ ('ch_cookie_consent.essentials.title')|trans({}, 'CHCookieConsentBundle') }}</h4>
+                        <div class="ch-cookie-consent__category-description">
+                            <p>{{ ('ch_cookie_consent.essentials.description')|trans({}, 'CHCookieConsentBundle') }}</p>
+                            <div class="ch-cookie-consent__category-description-details" id="essentialCookieDetails">
+                                {% for item in essentials %}
+                                    <table>
+                                        <tr>
+                                            <th>{{ ('ch_cookie_consent.table_header.title')|trans({}, 'CHCookieConsentBundle') }}</th>
+                                            <td>{{ ('ch_cookie_consent.essentials.details.'~item~'.title')|trans({}, 'CHCookieConsentBundle') }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>{{ ('ch_cookie_consent.table_header.provider')|trans({}, 'CHCookieConsentBundle') }}</th>
+                                            <td>{{ ('ch_cookie_consent.essentials.details.'~item~'.provider')|trans({}, 'CHCookieConsentBundle') }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>{{ ('ch_cookie_consent.table_header.purpose')|trans({}, 'CHCookieConsentBundle') }}</th>
+                                            <td>{{ ('ch_cookie_consent.essentials.details.'~item~'.purpose')|trans({}, 'CHCookieConsentBundle') }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>{{ ('ch_cookie_consent.table_header.name')|trans({}, 'CHCookieConsentBundle') }}</th>
+                                            <td>{{ ('ch_cookie_consent.essentials.details.'~item~'.name')|trans({}, 'CHCookieConsentBundle') }}</td>
+                                        </tr>
+                                    </table>
+                                    {% if loop.last == false %}
+                                        <hr/>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+
+                        <div class="ch-cookie-consent__toggle-cookie-information">
+                            <a class="btn ch-cookie-consent__toggle-cookie-information-show" rel="essentialCookieDetails">
+                                {{ 'ch_cookie_consent.show_cookie_information'|trans({}, 'CHCookieConsentBundle') }}
+                            </a>
+                            <a class="btn ch-cookie-consent__toggle-cookie-information-hide" rel="essentialCookieDetails">
+                                {{ 'ch_cookie_consent.hide_cookie_information'|trans({}, 'CHCookieConsentBundle') }}
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+                {% endif %}
+
+                {% for child in form %}
+                    {% if child.vars.block_prefixes[0] != 'button' %}
+                        {{ form_row(child) }}
+                    {% endif %}
+                {% endfor %}
+
+                <div class="ch-cookie-consent__btn-group ch-cookie-consent__btn-group-footer">
+                    {{ form_rest(form) }}
+                    {% block footer %}{% endblock %}
+                </div>
+
+
+            </div>
+
+        {{ form_end(form) }}
+    </div>
 </div>
 

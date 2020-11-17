@@ -29,15 +29,12 @@ class CookieConsentTypeTest extends TypeTestCase
         parent::setUp();
     }
 
-    /**
-     * Test submit of CookieConsentType.
-     */
-    public function testSubmitValidDate(): void
+    public function testSubmitAcceptOnlySelected(): void
     {
         $formData = [
-            'analytics'    => 'true',
-            'tracking'     => 'true',
-            'marketing'    => 'false',
+            'analytics' => 'true',
+            'tracking' => 'true',
+            'marketing' => 'false',
         ];
 
         $form = $this->factory->create(CookieConsentType::class);
@@ -47,9 +44,56 @@ class CookieConsentTypeTest extends TypeTestCase
         $this->assertSame($formData, $form->getData());
     }
 
+    public function testSubmitAcceptAll(): void
+    {
+        $formData = [
+            'analytics' => 'false',
+            'tracking' => 'false',
+            'marketing' => 'false',
+            'use_all_cookies' => true,
+        ];
+
+        $form = $this->factory->create(CookieConsentType::class);
+        $form->submit($formData);
+
+        $this->assertTrue($form->isSynchronized());
+        $this->assertSame(
+            [
+                'analytics' => 'true',
+                'tracking' => 'true',
+                'marketing' => 'true',
+            ],
+            $form->getData()
+        );
+    }
+
+    public function testSubmitAcceptOnlyFunctional(): void
+    {
+        $formData = [
+            'analytics' => 'false',
+            'tracking' => 'false',
+            'marketing' => 'false',
+            'use_only_functional_cookies' => true,
+        ];
+
+        $form = $this->factory->create(CookieConsentType::class);
+        $form->submit($formData);
+
+        $this->assertTrue($form->isSynchronized());
+        $this->assertSame(
+            [
+                'analytics' => 'false',
+                'tracking' => 'false',
+                'marketing' => 'false',
+            ],
+            $form->getData()
+        );
+    }
+
+
     protected function getExtensions(): array
     {
-        $type = new CookieConsentType($this->cookieChecker, ['analytics', 'tracking', 'marketing'], false);
+        $type = new CookieConsentType($this->cookieChecker, ['analytics', 'tracking', 'marketing']);
 
         return [
             new PreloadedExtension([$type], []),

@@ -52,9 +52,9 @@ class CookieConsentController
     private $translator;
 
     /**
-     * @var bool
+     * @var array
      */
-    private $cookieConsentSimplified;
+    private $cookieConsentEssentials;
 
     public function __construct(
         Environment $twigEnvironment,
@@ -62,16 +62,16 @@ class CookieConsentController
         CookieChecker $cookieChecker,
         string $cookieConsentTheme,
         string $cookieConsentPosition,
-        TranslatorInterface $translator,
-        bool $cookieConsentSimplified = false
+        array $cookieConsentEssentials,
+        TranslatorInterface $translator
     ) {
         $this->twigEnvironment         = $twigEnvironment;
         $this->formFactory             = $formFactory;
         $this->cookieChecker           = $cookieChecker;
         $this->cookieConsentTheme      = $cookieConsentTheme;
         $this->cookieConsentPosition   = $cookieConsentPosition;
+        $this->cookieConsentEssentials = $cookieConsentEssentials;
         $this->translator              = $translator;
-        $this->cookieConsentSimplified = $cookieConsentSimplified;
     }
 
     /**
@@ -87,8 +87,8 @@ class CookieConsentController
             $this->twigEnvironment->render('@CHCookieConsent/cookie_consent.html.twig', [
                 'form'       => $this->createCookieConsentForm()->createView(),
                 'theme'      => $this->cookieConsentTheme,
+                'essentials' => $this->cookieConsentEssentials,
                 'position'   => $this->cookieConsentPosition,
-                'simplified' => $this->cookieConsentSimplified,
             ])
         );
     }

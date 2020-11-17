@@ -10,6 +10,7 @@ declare(strict_types=1);
 namespace ConnectHolland\CookieConsentBundle\DependencyInjection;
 
 use ConnectHolland\CookieConsentBundle\Enum\CategoryEnum;
+use ConnectHolland\CookieConsentBundle\Enum\EssentialEnum;
 use ConnectHolland\CookieConsentBundle\Enum\PositionEnum;
 use ConnectHolland\CookieConsentBundle\Enum\ThemeEnum;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
@@ -33,6 +34,9 @@ class Configuration implements ConfigurationInterface
                 ->variableNode('categories')
                     ->defaultValue([CategoryEnum::CATEGORY_TRACKING, CategoryEnum::CATEGORY_MARKETING, CategoryEnum::CATEGORY_SOCIAL_MEDIA])
                 ->end()
+                ->variableNode('essentials')
+                    ->defaultValue(EssentialEnum::getAvailableEssentialCookies())
+                ->end()
                 ->enumNode('theme')
                     ->defaultValue(ThemeEnum::THEME_LIGHT)
                     ->values(ThemeEnum::getAvailableThemes())
@@ -43,9 +47,6 @@ class Configuration implements ConfigurationInterface
                 ->end()
                 ->booleanNode('use_logger')
                     ->defaultTrue()
-                ->end()
-                ->booleanNode('simplified')
-                    ->defaultFalse()
                 ->end()
             ->end()
         ;

@@ -43,6 +43,10 @@ Configure your Cookie Consent with the following possible settings
 ```yaml
 ch_cookie_consent:
     theme: 'light' # light, dark
+    essentials: # Below are the default essential cookies
+        - 'cookie_consent'
+        - 'phpsessid'
+        - 'sf_redirect'
     categories: # Below are the default supported categories
         - 'analytics'
         - 'tracking'
@@ -50,8 +54,13 @@ ch_cookie_consent:
         - 'social_media'
     use_logger: true # Logs user actions to database
     position: 'top' # top, bottom
-    simplified: false # When set to true the user can only deny or accept all cookies at once
 ```
+
+### Step 5: Add a link on your site (optional) 
+Add a link in your footer to review privacy settings, if you want.
+```twig
+<a href="{{ path('home', {'_cookie_consent_review': '1'}) }}">Review Privacy Settings</a>
+``` 
 
 ## Usage
 ### Twig implementation
@@ -107,9 +116,11 @@ check if user has saved any cookie preferences
 You can add or remove any category by changing the config and making sure there are translations available for these categories.
 
 ### Translations
-All texts can be altered via Symfony translations by overwriting the CHCookieConsentBundle translation files.
+Translations are currently available for EN, NL and DE. All texts can be altered via Symfony translations by overwriting the CHCookieConsentBundle translation files.
 
 ### Styling
+
+#### Option 1
 CHCookieConsentBundle comes with a default styling. A sass file is available in Resources/assets/css/cookie_consent.scss and a build css file is available in Resources/public/css/cookie_consent.css. Colors can easily be adjusted by setting the variables available in the sass file.
 
 To install these assets run:
@@ -120,6 +131,13 @@ bin/console assets:install
 And include the styling in your template:
 ```twig
 {% include "@CHCookieConsent/cookie_consent_styling.html.twig" %}
+```
+
+#### Option 2
+If you want to integrate styling into your site's scss use an include in your scss (avoids style glitches):
+```scss
+/** configure colors here */
+@import "vendor/connectholland/cookie-consent-bundle/Resources/assets/css/cookie_consent";
 ```
 
 ### Javascript
@@ -135,7 +153,7 @@ document.addEventListener('cookie-consent-form-button-click', function (e) {
 ```
 
 ### Template Themes
-You can override the templates by placing templates inside your poject:
+You can override the templates by placing templates inside your project:
 
 ```twig
 # app/Resources/CHCookieConsentBundle/views/cookie_consent.html.twig

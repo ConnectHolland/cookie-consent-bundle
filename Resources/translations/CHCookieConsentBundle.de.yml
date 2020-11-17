@@ -1,0 +1,75 @@
+ch_cookie_consent:
+    title: 'Cookies auf unserer Website'
+    intro: 'Wir verwenden Cookies, um Ihre Erfahrung und unsere Dienstleistungen zu verbessern. Hier finden Sie eine Übersicht aller verwendeten Cookies.'
+    read_more: 'Mehr erfahren'
+    essentials:
+        title: 'Notwendige Cookies'
+        description: 'Notwendige Cookies ermöglichen grundlegende Funktionen und sind für die einwandfreie Funktion der Website erforderlich.'
+        details:
+            cookie_consent:
+                title: 'Cookie Consent'
+                provider: 'Connect Holland'
+                purpose: 'Speichert die Einstellungen der Besucher, die hier ausgewählt wurden.'
+                name: 'Cookie_Consent, Cookie_Consent_*'
+            phpsessid:
+                title: 'PHP Session ID'
+                provider: 'PHP'
+                purpose: 'Dieser Session-Cookie wird verwendet, um den Benutzer wiedererkennen zu können.'
+                name: 'PHPSESSID'
+            sf_redirect:
+                title: 'Redirection'
+                provider: 'Symfony'
+                purpose: 'Speichert Informationen zur Weiterleitung.'
+                name: 'sf_redirect'
+    analytics:
+        title: 'Wollen Sie analytische Cookies?'
+        description: 'Auf diese Weise können wir Statistiken über den Website-Besuch sammeln.'
+        details:
+            provider: 'Anbieter'
+            purpose: 'Detaillierte Informationen zum Zweck dieses Cookies.'
+            policy: 'https://some.policy/url'
+            name: 'Jeder Name der Cookies, durch Komma getrennt.'
+            expiry: 'Cookie-Laufzeit'
+    tracking:
+        title: 'Wollen Sie Tracking-Cookies?'
+        description: 'Dies ermöglicht es uns, die Benutzererfahrung durch Beobachtung des Surfverhaltens zu verbessern.'
+        details:
+            provider: 'Anbieter'
+            purpose: 'Detaillierte Informationen zum Zweck dieses Cookies.'
+            policy: 'https://some.policy/url'
+            name: 'Jeder Name der Cookies, durch Komma getrennt.'
+            expiry: 'Cookie-Laufzeit'
+    marketing:
+        title: 'Wollen Sie Marketing-Cookies?'
+        description: 'Auf diese Weise können Werbenetzwerke Ihr Internetverhalten verfolgen und personalisierte Anzeigen auswählen, die auf Ihr Internetverhalten zugeschnitten sind.'
+        details:
+            provider: 'Anbieter'
+            purpose: 'Detaillierte Informationen zum Zweck dieses Cookies.'
+            policy: 'https://some.policy/url'
+            name: 'Jeder Name der Cookies, durch Komma getrennt.'
+            expiry: 'Cookie-Laufzeit'
+    social_media:
+        title: 'Wollen Sie Social-Media-Cookies?'
+        description: 'Auf diese Weise können soziale Netzwerke Ihr Internetverhalten verfolgen.'
+        details:
+            provider: 'Anbieter'
+            purpose: 'Detaillierte Informationen zum Zweck dieses Cookies.'
+            policy: 'https://some.policy/url'
+            name: 'Jeder Name der Cookies, durch Komma getrennt.'
+            expiry: 'Cookie-Laufzeit'
+    no: 'Nein'
+    yes: 'Ja'
+    save: 'Speichern'
+    use_only_functional_cookies: 'Nur funktionale Cookies verwenden'
+    use_all_cookies: 'Alle Cookies verwenden'
+    show_details: 'Details einblenden'
+    hide_details: 'Details ausblenden'
+    show_cookie_information: 'Cookie-Informationen einblenden'
+    hide_cookie_information: 'Cookie-Informationen ausblenden'
+    table_header:
+        title: 'Name'
+        provider: 'Anbieter'
+        purpose: 'Zweck'
+        policy: 'Datenschutzerklärung'
+        name: 'Cookie-Name'
+        expiry: 'Cookie-Laufzeit'

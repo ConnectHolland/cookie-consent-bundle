@@ -1,19 +1,63 @@
 ch_cookie_consent:
-    title: 'Cookies on our website.'
-    intro: ''
-    read_more: 'read more about this'
+    title: 'Cookies on our website'
+    intro: 'We use cookies to improve your experience and our services. Here you will find an overview of all cookies used.'
+    read_more: 'Learn more'
+    essentials:
+        title: 'Essential'
+        description: 'Essential cookies enable basic functions and are necessary for the proper functioning of the website.'
+        details:
+            cookie_consent:
+                title: 'Cookie Consent'
+                provider: 'Connect Holland'
+                purpose: 'This cookie contains your chosen privacy settings.'
+                name: 'Cookie_Consent, Cookie_Consent_*'
+            phpsessid:
+                title: 'PHP Session ID'
+                provider: 'PHP'
+                purpose: 'This session cookie is used to recognize the user.'
+                name: 'PHPSESSID'
+            sf_redirect:
+                title: 'Redirection'
+                provider: 'Symfony'
+                purpose: 'This cookie contains server redirect information.'
+                name: 'sf_redirect'
+
     analytics:
-        title: 'Do you want analytical cookies?'
-        description: ''
+        title: 'Do you want analytic cookies?'
+        description: 'This allows us to collect statistics about the website visit.'
+        details:
+            provider: 'Provider'
+            purpose: 'Detailed information about the purpose of this cookie.'
+            policy: 'https://some.policy/url'
+            name: 'Each name of the cookies, comma separated.'
+            expiry: 'Cookie lifetime'
     tracking:
         title: 'Do you want tracking cookies?'
-        description: ''
+        description: 'This allows us to improve the user experience by observing surfing behavior.'
+        details:
+            provider: 'Provider'
+            purpose: 'Detailed information about the purpose of this cookie.'
+            policy: 'https://some.policy/url'
+            name: 'Each name of the cookies, comma separated.'
+            expiry: 'Cookie lifetime'
     marketing:
-        title: 'Do you want personalised ads?'
-        description: ''
+        title: 'Do you want marketing cookies?'
+        description: 'This allows ad networks to track your internet behavior and you will receive personalized advertisements tailored to your internet behavior.'
+        details:
+            provider: 'Provider'
+            purpose: 'Detailed information about the purpose of this cookie.'
+            policy: 'https://some.policy/url'
+            name: 'Each name of the cookies, comma separated.'
+            expiry: 'Cookie lifetime'
     social_media:
         title: 'Do you want social media cookies?'
-        description: ''
+        description: 'This allows social media networks to place cookies with which you and your internet behavior can be followed.'
+        details:
+            provider: 'Provider'
+            purpose: 'Detailed information about the purpose of this cookie.'
+            policy: 'https://some.policy/url'
+            name: 'Each name of the cookies, comma separated.'
+            expiry: 'Cookie lifetime'
     no: 'No'
     yes: 'Yes'
     save: 'Save'
@@ -21,3 +65,12 @@ ch_cookie_consent:
     use_all_cookies: 'Allow all cookies'
     show_details: 'Show details'
     hide_details: 'Hide details'
+    show_cookie_information: 'Show cookie information'
+    hide_cookie_information: 'Hide cookie information'
+    table_header:
+        title: 'Name'
+        provider: 'Provider'
+        purpose: 'Purpose'
+        policy: 'Policy'
+        name: 'Cookie Name'
+        expiry: 'Cookie Expiry'

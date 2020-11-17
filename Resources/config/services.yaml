@@ -10,7 +10,7 @@ services:
             $cookieCategories: '%ch_cookie_consent.categories%'
             $useLogger: '%ch_cookie_consent.use_logger%'
             $cookieConsentPosition: '%ch_cookie_consent.position%'
-            $cookieConsentSimplified: '%ch_cookie_consent.simplified%'
+            $cookieConsentEssentials: '%ch_cookie_consent.essentials%'
 
     ConnectHolland\CookieConsentBundle\:
         resource: '../../'

@@ -10,7 +10,53 @@
         </div>
         <div class="ch-cookie-consent__category-information">
             <h4 class="ch-cookie-consent__category-title">{{ ('ch_cookie_consent.'~name~'.title')|trans({}, 'CHCookieConsentBundle') }}</h4>
-            <p class="ch-cookie-consent__category-description">{{ ('ch_cookie_consent.'~name~'.description')|trans({}, 'CHCookieConsentBundle') }}</p>
+            <div class="ch-cookie-consent__category-description">
+
+                <p>
+                    {{ ('ch_cookie_consent.'~name~'.description')|trans({}, 'CHCookieConsentBundle') }}
+                </p>
+
+                <div class="ch-cookie-consent__category-description-details" id="{{ name }}CookieDetails">
+                    <table>
+                        <tr>
+                            <th>{{ ('ch_cookie_consent.table_header.title')|trans({}, 'CHCookieConsentBundle') }}</th>
+                            <td>{{ ('ch_cookie_consent.'~name~'.title')|trans({}, 'CHCookieConsentBundle') }}</td>
+                        </tr>
+                        <tr>
+                            <th>{{ ('ch_cookie_consent.table_header.provider')|trans({}, 'CHCookieConsentBundle') }}</th>
+                            <td>{{ ('ch_cookie_consent.'~name~'.details.provider')|trans({}, 'CHCookieConsentBundle') }}</td>
+                        </tr>
+                        <tr>
+                            <th>{{ ('ch_cookie_consent.table_header.purpose')|trans({}, 'CHCookieConsentBundle') }}</th>
+                            <td>{{ ('ch_cookie_consent.'~name~'.details.purpose')|trans({}, 'CHCookieConsentBundle') }}</td>
+                        </tr>
+                        <tr>
+                            <th>{{ ('ch_cookie_consent.table_header.policy')|trans({}, 'CHCookieConsentBundle') }}</th>
+                            <td>
+                                <a href="{{ ('ch_cookie_consent.'~name~'.details.policy')|trans({}, 'CHCookieConsentBundle') }}" target="_blank" rel="nofollow noopener noreferrer">{{ ('ch_cookie_consent.'~name~'.details.policy')|trans({}, 'CHCookieConsentBundle') }}</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>{{ ('ch_cookie_consent.table_header.name')|trans({}, 'CHCookieConsentBundle') }}</th>
+                            <td>{{ ('ch_cookie_consent.'~name~'.details.name')|trans({}, 'CHCookieConsentBundle') }}</td>
+                        </tr>
+                        <tr>
+                            <th>{{ ('ch_cookie_consent.table_header.expiry')|trans({}, 'CHCookieConsentBundle') }}</th>
+                            <td>{{ ('ch_cookie_consent.'~name~'.details.expiry')|trans({}, 'CHCookieConsentBundle') }}</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="ch-cookie-consent__toggle-cookie-information">
+                    <a class="btn ch-cookie-consent__toggle-cookie-information-show" rel="{{ name }}CookieDetails">
+                        {{ 'ch_cookie_consent.show_cookie_information'|trans({}, 'CHCookieConsentBundle') }}
+                    </a>
+                    <a class="btn ch-cookie-consent__toggle-cookie-information-hide" rel="{{ name }}CookieDetails">
+                        {{ 'ch_cookie_consent.hide_cookie_information'|trans({}, 'CHCookieConsentBundle') }}
+                    </a>
+                </div>
+
+            </div>
         </div>
     </div>
 {% endblock %}

@@ -1,19 +1,63 @@
 ch_cookie_consent:
-    title: 'Cookies op onze website.'
-    intro: ''
+    title: 'Cookies op onze website'
+    intro: 'We gebruiken cookies om uw ervaring en onze diensten te verbeteren. Hier vind je een overzicht van alle gebruikte cookies.'
     read_more: 'meer uitleg hierover'
+    essentials:
+        title: 'Noodzakelijke cookies'
+        description: 'Essentiële cookies maken basisfuncties mogelijk en zijn noodzakelijk voor het goed functioneren van de website.'
+        details:
+            cookie_consent:
+                title: 'Cookie Consent'
+                provider: 'Connect Holland'
+                purpose: 'Deze cookie bevat de door u gekozen privacy-instellingen.'
+                name: 'Cookie_Consent, Cookie_Consent_*'
+            phpsessid:
+                title: 'PHP Session ID'
+                provider: 'PHP'
+                purpose: 'Deze sessiecookie wordt gebruikt om de gebruiker te herkennen.'
+                name: 'PHPSESSID'
+            sf_redirect:
+                title: 'Redirection'
+                provider: 'Symfony'
+                purpose: 'Deze cookie bevat serveromleidingsinformatie.'
+                name: 'sf_redirect'
+
     analytics:
         title: 'Wilt u analytische cookies?'
         description: 'Hiermee kunnen wij statistieken verzamelen over de websitebezoek.'
+        details:
+            provider: 'Aanbieder'
+            purpose: 'Gedetailleerde informatie over het doel van deze cookie.'
+            policy: 'https://some.policy/url'
+            name: 'Elke naam van de cookies, gescheiden door kommas.'
+            expiry: 'Cookie levensduur'
     tracking:
         title: 'Wilt u tracking cookies?'
         description: 'Hiermee kunnen wij de gebruikerservaring verbeteren door het surfgedrag te observeren.'
+        details:
+            provider: 'Aanbieder'
+            purpose: 'Gedetailleerde informatie over het doel van deze cookie.'
+            policy: 'https://some.policy/url'
+            name: 'Elke naam van de cookies, gescheiden door kommas.'
+            expiry: 'Cookie levensduur'
     marketing:
         title: 'Wilt u gepersonaliseerde advertenties?'
-        description: 'Hiermee kunnen advertentienetwerken uw internetgedrag volgen en ontvangt u gepersonaliseerde advertenties afgestemd op uw internetgedrag'
+        description: 'Hiermee kunnen advertentienetwerken uw internetgedrag volgen en ontvangt u gepersonaliseerde advertenties afgestemd op uw internetgedrag.'
+        details:
+            provider: 'Aanbieder'
+            purpose: 'Gedetailleerde informatie over het doel van deze cookie.'
+            policy: 'https://some.policy/url'
+            name: 'Elke naam van de cookies, gescheiden door kommas.'
+            expiry: 'Cookie levensduur'
     social_media:
         title: 'Wilt u social media cookies?'
         description: 'Hiermee kunnen socialmedianetwerken cookies plaatsen waarmee u en uw internetgedrag gevolgd kunnen worden.'
+        details:
+            provider: 'Aanbieder'
+            purpose: 'Gedetailleerde informatie over het doel van deze cookie.'
+            policy: 'https://some.policy/url'
+            name: 'Elke naam van de cookies, gescheiden door kommas.'
+            expiry: 'Cookie levensduur'
     no: 'Nee'
     yes: 'Ja'
     save: 'Opslaan'
@@ -21,3 +65,12 @@ ch_cookie_consent:
     use_all_cookies: 'Sta alle cookies toe'
     show_details: 'Toon details'
     hide_details: 'Verberg details'
+    show_cookie_information: 'Toon cookie-informatie'
+    hide_cookie_information: 'Verberg cookie-informatie'
+    table_header:
+        title: 'Naam'
+        provider: 'Aanbieder'
+        purpose: 'Doel'
+        policy: 'Het beleid'
+        name: 'Cookie naam'
+        expiry: 'Cookie levensduur'

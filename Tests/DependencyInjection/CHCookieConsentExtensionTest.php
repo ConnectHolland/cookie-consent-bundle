@@ -37,6 +37,7 @@ class CHCookieConsentExtensionTest extends TestCase
         $this->createConfiguration($this->getFullConfig());
 
         $this->assertParameter(['analytics', 'tracking', 'marketing', 'social_media'], 'ch_cookie_consent.categories');
+        $this->assertParameter(['cookie_consent', 'phpsessid', 'sf_redirect'], 'ch_cookie_consent.essentials');
         $this->assertParameter('dark', 'ch_cookie_consent.theme');
         $this->assertParameter('top', 'ch_cookie_consent.position');
     }
