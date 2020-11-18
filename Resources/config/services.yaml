@@ -9,6 +9,8 @@ services:
             $cookieConsentTheme: '%ch_cookie_consent.theme%'
             $cookieCategories: '%ch_cookie_consent.categories%'
             $useLogger: '%ch_cookie_consent.use_logger%'
+            $httpOnly: '%ch_cookie_consent.httpOnly%'
+            $raw: '%ch_cookie_consent.raw%'
             $cookieConsentPosition: '%ch_cookie_consent.position%'
             $cookieConsentSimplified: '%ch_cookie_consent.simplified%'
 

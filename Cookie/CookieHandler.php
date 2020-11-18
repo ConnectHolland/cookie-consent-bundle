@@ -22,9 +22,21 @@ class CookieHandler
      */
     private $response;
 
-    public function __construct(Response $response)
+    /**
+     * @var bool
+     */
+    private $httpOnly;
+
+    /**
+     * @var bool
+     */
+    private $raw;
+
+    public function __construct(Response $response, bool $httpOnly = true, bool $raw = true)
     {
-        $this->response = $response;
+        $this->response  = $response;
+        $this->raw       = $raw;
+        $this->httpOnly  = $httpOnly;
     }
 
     /**
@@ -47,9 +59,8 @@ class CookieHandler
     {
         $expirationDate = new DateTime();
         $expirationDate->add(new DateInterval('P1Y'));
-
         $this->response->headers->setCookie(
-            new Cookie($name, $value, $expirationDate, '/', null, null, true, true)
+            new Cookie($name, $value, $expirationDate, '/', null, null, $this->httpOnly, $this->raw)
         );
     }
 }

@@ -47,6 +47,12 @@ class Configuration implements ConfigurationInterface
                 ->booleanNode('simplified')
                     ->defaultFalse()
                 ->end()
+                ->booleanNode('httpOnly')
+                    ->defaultTrue()
+                ->end()
+                ->booleanNode('raw')
+                    ->defaultTrue()
+                ->end()
             ->end()
         ;
 

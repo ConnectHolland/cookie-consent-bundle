@@ -25,6 +25,8 @@ class CHCookieConsentExtension extends Extension
         $container->setParameter('ch_cookie_consent.categories', $config['categories']);
         $container->setParameter('ch_cookie_consent.theme', $config['theme']);
         $container->setParameter('ch_cookie_consent.use_logger', $config['use_logger']);
+        $container->setParameter('ch_cookie_consent.httpOnly', $config['httpOnly']);
+        $container->setParameter('ch_cookie_consent.raw', $config['raw']);
         $container->setParameter('ch_cookie_consent.position', $config['position']);
         $container->setParameter('ch_cookie_consent.simplified', $config['simplified']);
 
